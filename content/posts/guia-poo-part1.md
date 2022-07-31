@@ -1,7 +1,6 @@
 ---
 title: "Guia fundamental da programação orientada a objetos - Parte 1"
 date: 2022-07-31T19:09:07-03:00
-draft: true
 ---
 
 A ideia dessa série de posts é cobrir as partes que eu considero mais fundamentais na orientação a objetos, e no artigo de hoje iremos começar com os conceitos mais básicos desse paradigma.
