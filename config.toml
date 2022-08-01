@@ -32,14 +32,14 @@ theme = "LoveIt"
     name = "Tags"
     url = "/tags/"
     title = ""
-  [[menu.main]]
-    weight = 3
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categorias"
-    url = "/categories/"
-    title = ""
+#   [[menu.main]]
+#     weight = 3
+#     identifier = "categories"
+#     pre = ""
+#     post = ""
+#     name = "Categorias"
+#     url = "/categories/"
+#     title = ""
 # Theme config
 
 [params]
