@@ -111,3 +111,7 @@ theme = "LoveIt"
       keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
       auto = true
+
+    [params.page.code]
+        copy = true
+        maxShowLines = 100
