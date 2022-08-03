@@ -1,8 +1,8 @@
-baseURL = 'https://marcusxavierr.github.io/personal-website/'
+baseURL = 'https://marcusxavier.dev/'
 languageCode = 'en-us'
 title = 'Meu website'
 theme = "LoveIt"
-
+googleAnalytics = "G-WEKTJYV5Z7"
 
 # Author config
 [author]
