@@ -41,7 +41,7 @@ sumArrayValues($lista);
 let lista = [1,2,3,4,5,6,7,8,9,10]
 
 //Sim, a função só tem uma linha
-let somador = (acumulador, valor, c) => acumulador + valor + 1
+let somador = (acumulador, valor) => acumulador + valor
 lista.reduce(somador, 0)
 // Output: 55
 ```
