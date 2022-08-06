@@ -1,17 +1,18 @@
 ---
 title: "Brincando Com A Função Reduce"
 date: 2022-08-05T16:38:45-03:00
+summary: "A função reduce é bastante incompreendida por muitos programadores. Tendo isso em vista hoje vamos mexer um pouco com essa função e implementarmos a nossa própria versão para clarificar mais o que essa função faz debaixo dos panos"
 tags: ['Code', 'Functional_programming']
 featuredImage: "https://i.ibb.co/xCGThbJ/reduce.jpg"
 ---
 ## Introdução
-Faz um tempo que eu não escrevo nenhum blogpost. Nesse periodo eu andei estudando haskell e achei uma função que bem interessante chamada **fold**, mas essa função é mais conhecida como **reduce**. O que faz essa função ser bem interessante é o fato de que ela contém bastante informação em pouquissimas linhas de codigo.
+Faz um tempo que eu não escrevo nenhum blogpost. Nesse período eu andei estudando haskell e achei uma função que bem interessante chamada **fold**, mas essa função é mais conhecida como **reduce**. O que faz essa função ser bem interessante é o fato de que ela contém bastante informação em pouquíssimas linhas de código.
 
 ## Implementando um simples problema
-Só pra mostrar um pouco do que o reduce é capaz de fazer, vamos imaginar um problema hipotetico: *Você recebe uma lista de compras que um cliente fez, e precisa somar todos os valores dessa lista.*
+Só pra mostrar um pouco do que o reduce é capaz de fazer, vamos imaginar um problema hipotético: *Você recebe uma lista de compras que um cliente fez, e precisa somar todos os valores dessa lista.*
 
 {{< admonition note "Aviso" >}}
-Muitas linguagens fornecem funções pra somar os valores de uma lista, mas vamos implementar a nossa propria função só por questões didáticas.
+Muitas linguagens fornecem funções pra somar os valores de uma lista, mas vamos implementar a nossa própria função só por questões didáticas.
 
 Primeiro eu vou implementar essa função no bom e velho PHP escrevendo sem usar reduce, só com um foreach mesmo.
 
@@ -67,9 +68,9 @@ Aqui está a definição original do array.reduce
 ```js
 array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
 ```
-Mas como os parametros `currentIndex` e `arr` são opcionais, vou fazer uma definição mais simples para explicar de forma mais didática.
+Mas como os parâmetros `currentIndex` e `arr` são opcionais, vou fazer uma definição mais simples para explicar de forma mais didática.
 
-Obs: O parametro initialValue também é opcional, mas eu considero ele importante demais para omitirmos na nossa implementação
+Obs: O parâmetro initialValue também é opcional, mas eu considero ele importante demais para omitirmos na nossa implementação
 
 ````js
 array.reduce(function(acumulador, currentValue), initialValue)
@@ -118,9 +119,9 @@ meuReduce(dobra_array, [], lista)
 // Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 ```
 
-Sim, eu diria que uma das principais funções do reduce é pegar uma lista de items e retornar um unico item. Como nas duas primeiras funções onde nós pegavamos umas lista de inteiros e **REDUZÍAMOS** a lista a somente um inteiro.
+Sim, eu diria que uma das principais funções do reduce é pegar uma lista de items e retornar um unico item. Como nas duas primeiras funções onde nós pegávamos umas lista de inteiros e **REDUZÍAMOS** a lista a somente um inteiro.
 
-Mas também é possivel que nosso reduce receba uma lista e retorne outra lista. Basta que o valor inicial seja um array vazio, para que o acumulador consiga usar a função push para colocar itens dentro de si.
+Mas também é possível que nosso reduce receba uma lista e retorne outra lista. Basta que o valor inicial seja um array vazio, para que o acumulador consiga usar a função push para colocar itens dentro de si.
 
 ## Recapitulando
 Bom, esse artigo já está ficando grande demais, então vamos somente recapitular o que aprendemos antes de finalizar:
@@ -128,7 +129,7 @@ Bom, esse artigo já está ficando grande demais, então vamos somente recapitul
 * O reduce (mais conhecido como fold em algumas linguagens) é uma função que pode fazer muitas coisas com poucas linhas de código
 * A função reduce é bastante usada para pegar uma lista de valores e **reduzir** essa lista a somente um item.
 * O reduce recebe uma função anonima que será aplicada ao acumulador e a cada item da sua lista, recebe um valor inicial para o acumulador, e recebe a própria lista
-* A função anonima deve receber como parametro, no minimo o seu acumulador e o item atual da sua lista (lembre-se que a função vai ser chamada dentro de um loop que vai varrer toda a sua lista). Além desses dois itens obrigatórios algumas linguagens te permitem colocar mais parametros na sua função anonima, mas esses são opcionais.
+* A função anonima deve receber como parâmetro, no minimo o seu acumulador e o item atual da sua lista (lembre-se que a função vai ser chamada dentro de um loop que vai varrer toda a sua lista). Além desses dois itens obrigatórios algumas linguagens te permitem colocar mais parâmetros na sua função anonima, mas esses são opcionais.
 
 
 E é isso pessoal. Foi bom escrever um pouco sobre essa função que é bem confusa de se entender quando vemos ela pela primeira vez.
