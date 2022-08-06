@@ -1,5 +1,6 @@
 baseURL = 'https://marcusxavier.dev/'
-languageCode = 'en-us'
+languageCode = 'pt-BR'
+languageName = 'Brazilian Portuguese'
 title = 'Meu website'
 theme = "LoveIt"
 googleAnalytics = "G-WEKTJYV5Z7"
@@ -32,6 +33,17 @@ googleAnalytics = "G-WEKTJYV5Z7"
     name = "Tags"
     url = "/tags/"
     title = ""
+
+
+  [[menu.main]]
+    weight = 6
+    identifier = "github"
+    pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
+    post = ""
+    name = ""
+    url = "https://github.com/MarcusXavierr"
+    title = "GitHub"
+
 #   [[menu.main]]
 #     weight = 3
 #     identifier = "categories"
