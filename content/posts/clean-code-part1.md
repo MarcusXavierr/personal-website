@@ -25,3 +25,45 @@ A vantagem em ter excelentes nomes é que eles te dão um certo contexto geral d
 Bom, na minha experiencia seguir essa regra a risca é bem difícil. Ter uma certa padronização no seu código ajuda bastante, por exemplo, usar o controller somente para ser o "meio de campo" entre o endpoint e a regra de negócio.
 
 Logo, se eu criar uma class WithdrawRequestController, fica claro que essa classe irá somente chamar outras classes que vão cuidar da regra de negócio. Esse nome também deixa claro que a classe cuida de requisições de saque. Então, dado o contexto da nossa codebase, o nome WithdrawRequestController nos diz que a classe **existe para cuidar do meio de campo entre o endpoint e a nossa regra de negócio, que irá processar requisições de saque dos nossos usuários**.
+
+Pra mostrar outro exemplo real disso, vou pegar um trecho de código em Go de um projeto pessoal meu.
+Eu troquei os nomes das funções e parâmetros que estou usando num trecho de código. Você consegue entender com facilidade o que está se passando no código abaixo?
+
+```go
+func sentence(item string, files ...string) {
+	for _,file := range files {
+		if testItem(item, file) {
+			color.Red("sentence '%s' already exists on file %s\n", item, file)
+			os.Exit(3)
+		}
+	}
+}
+
+func testItem(item, file string) bool {
+	buffer := read(file)
+	return compare(item, buffer)
+}
+```
+Agora, vamos para o código original. Leia denovo o trecho de código.
+
+```go
+
+func CheckIfSentenceExists(sentence string, filePathList ...string) {
+	for _,filePath := range filePathList {
+		if hasSentence(sentence, filePath) {
+			color.Red("sentence '%s' already exists on file %s\n", sentence, filePath)
+			os.Exit(3)
+		}
+	}
+}
+
+func hasSentence(sentence, filePath string) bool {
+	var buffer string = ReadFile(filePath)
+	return verifyIsSentenceExists(sentence, buffer)
+}
+```
+O nome das funções e dos parâmetros não foram bem importantes no entendimento do que o código faz?
+
+Confesso que não acho esse trecho de código o mais legível que eu já escrevi, mas com uma boa nomenclatura de métodos (e claro, **testes**) eu consigo entender facilmente o que o código deveria fazer, mesmo depois de um tempo sem tocar no projeto.
+
+
