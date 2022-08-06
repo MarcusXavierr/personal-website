@@ -81,7 +81,7 @@ Agora vamos implementar logo a nossa versão simplificada do reduce
 ```js
 function meuReduce(funcaoAnonima, acumulador, lista) {
     // No reduce eu basicamente vou percorrer a minha lista e ir salvando no meu acumulador
-    // o resultado da minha função anonima que está recebendo esse acumulador e um item da lista
+    // o resultado da minha função anonima
     // Eu usei um for, mas poderia ser feito usando recursão também.
     for(let i = 0; i < lista.length; i++) {
         //Aqui o meu acumulador vai receber o resultado da computação da minha função anonima
