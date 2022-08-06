@@ -2,10 +2,7 @@
 title: "Brincando Com A Função Reduce"
 date: 2022-08-05T16:38:45-03:00
 tags: ['Code', 'Functional_programming']
-
-resources:
-- name: "featured-image"
-  src: "http://localhost:1313/theme-documentation-basics/featured-image.jpg"
+featuredImage: "https://i.ibb.co/xCGThbJ/reduce.jpg"
 ---
 ## Introdução
 Faz um tempo que eu não escrevo nenhum blogpost. Nesse periodo eu andei estudando haskell e achei uma função que bem interessante chamada **fold**, mas essa função é mais conhecida como **reduce**. O que faz essa função ser bem interessante é o fato de que ela contém bastante informação em pouquissimas linhas de codigo.
