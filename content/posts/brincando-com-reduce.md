@@ -119,6 +119,7 @@ Mas também é possivel que nosso reduce receba uma lista e retorne outra lista.
 ## Recapitulando
 Bom, esse artigo já está ficando grande demais, então vamos somente recapitular o que aprendemos antes de finalizar:
 
+* O reduce (mais conhecido como fold em algumas linguagens) é uma função que pode fazer muitas coisas com poucas linhas de código
 * A função reduce é bastante usada para pegar uma lista de valores e **reduzir** essa lista a somente um item.
 * O reduce recebe uma função anonima que será aplicada ao acumulador e a cada item da sua lista, recebe um valor inicial para o acumulador, e recebe a própria lista
 * A função anonima deve receber como parametro, no minimo o seu acumulador e o item atual da sua lista (lembre-se que a função vai ser chamada dentro de um loop que vai varrer toda a sua lista). Além desses dois itens obrigatórios algumas linguagens te permitem colocar mais parametros na sua função anonima, mas esses são opcionais.
