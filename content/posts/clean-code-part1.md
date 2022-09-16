@@ -2,7 +2,7 @@
 title: "Clean Code: Escolhendo bons nomes"
 summary: "Bons nomes são demasiadamente importantes no desenvolvimento de software e este artigo visa cobrir as melhores dicas do livro Clean Code sobre a escolha de bons nomes"
 date: 2022-08-06T10:10:58-03:00
-draft: true
+draft: false
 ---
 ## Introdução
 Clean code é provavelmente um dos livros mais famosos do desenvolvimento de software, provavelmente todo desenvolvedor já ouviu o nome desse livro.
@@ -67,6 +67,7 @@ Os nomes mais descritivos ajudam mesmo a entender o funcionamento do código com
 
 Confesso que não acho esse trecho de código o mais legível que eu já escrevi, mas com uma boa nomenclatura de métodos (e claro, **testes**) eu consigo entender facilmente o que o código deveria fazer, mesmo depois de um tempo sem tocar no projeto.
 
+Enfim, sempre que possível veja se seus nomes estão respondendo perguntas como as mencionadas mais acima.
 
 ## Use e abuse de enums, constantes e afins
 Muitas vezes nos vemos na situação em que precisamos usar um valor hardcoded no nosso código, tipo, o nosso valor não vai mudar e só vamos usá-lo em algum lugar, logo bate a vontade de simplesmente colocar o valor que você quer e pronto.
