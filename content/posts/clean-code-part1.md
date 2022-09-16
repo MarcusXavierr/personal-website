@@ -45,7 +45,7 @@ func testItem(item, file string) bool {
 	return compare(item, buffer)
 }
 ```
-Agora, vamos para o código original. Leia denovo o trecho de código.
+Agora, vamos para o código original. Leia novamente o trecho de código.
 
 ```go
 
@@ -69,8 +69,8 @@ Confesso que não acho esse trecho de código o mais legível que eu já escrevi
 
 
 ## Use e abuse de enums, constantes e afins
-Muitas vezes nos vemos na situação em que precisamos usar um valor hardcoded no nosso código, tipo, o nosso valor não vai mudar e só vamos usa-lo em algum lugar, logo bate a vontade de simplemente colocar o valor que você quer e pronto.
-Quando sujir uma situação parecida, coloque esse valor dentro de uma constante ou variavel, ou então se você estiver mexendo com números crus que representam algo além de um simples número, use um Enum ou algo parecido que é fornecido na sua linguagem.
+Muitas vezes nos vemos na situação em que precisamos usar um valor hardcoded no nosso código, tipo, o nosso valor não vai mudar e só vamos usá-lo em algum lugar, logo bate a vontade de simplesmente colocar o valor que você quer e pronto.
+Quando surgir uma situação parecida, coloque esse valor dentro de uma constante ou variável, ou então se você estiver mexendo com números crus que representam algo além de um simples número, use um Enum ou algo parecido que é fornecido na sua linguagem.
 
 ```javascript
 
@@ -89,7 +89,7 @@ function IgnoreVideos()
 
 ```
 
-Duas coisas podem ser feitas para melhorar **muito** a clareza do código. Nós poderiamos jogar aquele valor do parseInt numa variavel que indica o que é o valor sendo guardado, e podemos usar um const para guardar aquele numero 1000 hardcoded.
+Duas coisas podem ser feitas para melhorar **muito** a clareza do código. Nós poderíamos jogar aquele valor do parseInt numa variável que indica o que é o valor sendo guardado, e podemos usar um const para guardar aquele numero 1000 hardcoded.
 
 ```javascript
 
@@ -112,24 +112,24 @@ function IgnoreVideos()
 ```
 Essa mudança não foi nada de extraordinário e sendo sincero eu nem achei que o nome da constante seja bom, mas o simples fato de adicionar nome a coisas que antes eram só um monte de código já trouxe muito mais clareza pra esse trecho de código.
 
-Outra melhoria seria jogar esse código que pega o numero de views em uma função, pois além de tirar esse `innerText.replace` feio da nossa frente, também tornaria o código reaproveitável e nós poderiamos escolher um bom nome pra essa função, deixando ainda mais claro o que o nosso código faz.
+Outra melhoria seria jogar esse código que pega o numero de views em uma função, pois além de tirar esse `innerText.replace` feio da nossa frente, também tornaria o código reaproveitável e nós poderíamos escolher um bom nome pra essa função, deixando ainda mais claro o que o nosso código faz.
 
-## Procure nomear variaveis com nomes que indicam o que está sendo mensusado e a sua unidade
-Imagine que eu preciso criar uma variavel para guardar o numero de dias que a minha entrega demorou pra chegar dos correios. Eu poderia usar uma variavel chamada `days`, é um nome OK, mas podemos achar um nome melhor ainda.
+## Procure nomear variáveis com nomes que indicam o que está sendo mensurado e a sua unidade
+Imagine que eu preciso criar uma variável para guardar o numero de dias que a minha entrega demorou pra chegar dos correios. Eu poderia usar uma variável chamada `days`, é um nome OK, mas podemos achar um nome melhor ainda.
 Para descobrir qual nome usar, vamos responder as duas perguntas abaixo.
-1. O que essa variavel está guardando?
+1. O que essa variável está guardando?
     > R: O numero de dias decorridos desde que eu fiz o meu pedido.
-2. Qual é a "unidade" dessa variavel, ou seja, que tipo de valor eu estou guardando e qual é a sua ordem de grandeza?
-    > R: Aqui quando eu digo "tipo" não estou me referindo se o valor é uma string ou um int, mas sim qual a ordem de grandeza do meu valor salvo, ou seja, esse tempo decorrido está sendo mensurado em dias, segundos ou milisegundos? Informar isso é importante para evitar confussões futuras (usar um valor em milisegundos achando que eram dias, por exemplo). Enfim, eu quero guardar o tempo decorrido em **dias**, então a unidade da minha variavel é um dia.
+2. Qual é a "unidade" dessa variável, ou seja, que tipo de valor eu estou guardando e qual é a sua ordem de grandeza?
+    > R: Aqui quando eu digo "tipo" não estou me referindo se o valor é uma string ou um int, mas sim qual a ordem de grandeza do meu valor salvo, ou seja, esse tempo decorrido está sendo mensurado em dias, segundos ou milissegundos? Informar isso é importante para evitar confusões futuras (usar um valor em milissegundos achando que eram dias, por exemplo). Enfim, eu quero guardar o tempo decorrido em **dias**, então a unidade da minha variável é um dia.
 
-Pronto, com essas duas informações fica mais simples decidir um nome para nossa variavel: Por que ao invés de usar o nome `days`, nós não usamos o nome `elapsedTimeInDays`? É um nome que descreve o que nós guardamos (`elapsedTime` (Tempo decorrido)) e salva a unidade desse tempo que são dias.
+Pronto, com essas duas informações fica mais simples decidir um nome para nossa variável: Por que ao invés de usar o nome `days`, nós não usamos o nome `elapsedTimeInDays`? É um nome que descreve o que nós guardamos (`elapsedTime` (Tempo decorrido)) e salva a unidade desse tempo que são dias.
 
-Caso eu precisasse fazer uma variavel para guardar quanto tempo eu consegui ficar sem respirar, uma boa opção de nome seria `elapsedTimeInSeconds`.
+Caso eu precisasse fazer uma variável para guardar quanto tempo eu consegui ficar sem respirar, uma boa opção de nome seria `elapsedTimeInSeconds`.
 
 ## Se possível, use nomes que são "buscáveis"
-Não sei quanto a você, mas eu busco nomes no meu código o tempo inteiro, seja porque eu tenho uma rota e quero descobrir qual Controller é usado por ela, ou então pra achar onde uma função é usada. O problema é que quando o nome é genérico demais, fica péssimo de fazer buscas assim no código porque você vai receber vários resultados inuteis para sua busca, simplesmente porque existem várias coisas no código com um nome parecido com o nome buscado.
+Não sei quanto a você, mas eu busco nomes no meu código o tempo inteiro, seja porque eu tenho uma rota e quero descobrir qual Controller é usado por ela, ou então pra achar onde uma função é usada. O problema é que quando o nome é genérico demais, fica péssimo de fazer buscas assim no código porque você vai receber vários resultados inúteis para sua busca, simplesmente porque existem várias coisas no código com um nome parecido com o nome buscado.
 
-Uma boa forma de resolver isso é evitar ao máximo usar nomes genéricos no código. Um exemplo de nome genérico seria a variavel `days` do trecho acima. Evite também usar variaveis de uma só letra porque buscar por essa variável depois será como procurar agulha no palheiro. A única situação onde que acho plausível usar uma variavel com esse tipo de nome é dentro de um for.
+Uma boa forma de resolver isso é evitar ao máximo usar nomes genéricos no código. Um exemplo de nome genérico seria a variável `days` do trecho acima. Evite também usar variáveis de uma só letra porque buscar por essa variável depois será como procurar agulha no palheiro. A única situação onde que acho plausível usar uma variável com esse tipo de nome é dentro de um for.
 
 ## Conclusão
 Bom, esse artigo já está ficando um pouco grande então vamos parar por aqui. O tema de nomes é algo extremamente importante para o desenvolvimento de software, não é atoa que esse tema é abordado logo no segundo capitulo do livro, e por isso eu acho importante que praticar dar bons nomes às coisas no seu código, e ter sempre à mão alguma ferramenta para refatorar código e trocar o nome de algo sem muita dor de cabeça (testes pra garantir que nada foi quebrado são sempre bem vindos).
