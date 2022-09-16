@@ -1,14 +1,15 @@
 ---
-title: "Clean Code: Nomes Significativos"
+title: "Clean Code: Escolhendo bons nomes"
 summary: "Bons nomes são demasiadamente importantes no desenvolvimento de software e este artigo visa cobrir as melhores dicas do livro Clean Code sobre a escolha de bons nomes"
 date: 2022-08-06T10:10:58-03:00
 draft: true
 ---
 ## Introdução
-Clean Code é um livro extremamente famoso entre programadores. E essa série de posts visa cobrir os principais capítulos desse livro. O artigo de hoje é sobre o segundo capítulo: nomes significativos.
+Clean code é provavelmente um dos livros mais famosos do desenvolvimento de software, provavelmente todo desenvolvedor já ouviu o nome desse livro.
 
-A ideia dessa série de artigos é servir como um pequeno resumo pessoal sobre o livro clean code. Eu achei vários insights interessantes enquanto lia o livro e anotei eles para que eu pudesse revisar, mas senti que anotações soltas com zero contexto não são muito boas pra revisar.
-Por isso pretendo não só compartilhar esses insights, mas também compartilhar minha opinião sobre o assunto e colocar um pouco de código pra contextualizar os insights.
+A ideia dessa série de artigos é servir como um pequeno resumo pessoal sobre o que vi no livro. Eu achei vários insights interessantes enquanto lia e anotei eles para que eu pudesse revisar, mas senti que anotações soltas com zero contexto não são muito boas pra revisar.
+
+Por isso pretendo não só compartilhar esses insights, mas também divagar sobre cada uma das dicas apresentadas e colocar um pouco de código pra contextualizar o que está sendo dito.
 
 É sempre bom deixar claro que o livro Clean Code não é nenhum magnum opus da computação e nem tem pretensão de ser. O próprio autor do livro deixa bem claro que não se deve levar a ferro e fogo 100% do que é dito no livro. Então não vamos desapontar o uncle bob, ok 😉?
 
@@ -24,11 +25,7 @@ E eu concordo bastante com essa visão. Excelentes nomes te dão um certo contex
 
 O problema é que criar excelentes nomes é uma tarefa bem difícil, raramente me vem à mente o nome perfeito quando estou codificando, principalmente se eu não tiver uma visão clara do que o código deve fazer.
 
-Felizmente, hoje em dia quase todo editor te dá a possibilidade de renomear coisas no código de forma extremamente simples e rápida. Então, se você ainda não usa isso no seu editor, trate de configurar essa funcionalidade pra ontem.
-
-Ter uma certa padronização na forma como você organiza seu código também ajuda bastante, por exemplo, usar o controller somente para ser o "meio de campo" entre o endpoint e a regra de negócio.
-
-Logo, se eu criar uma classe WithdrawRequestController, fica claro que essa classe irá somente chamar outras classes que vão cuidar da regra de negócio, que muito provavelmente está relacionada a uma requisição de saque ou qualquer coisa do tipo. Então, dado o contexto da nossa codebase, o nome WithdrawRequestController nos diz que a classe **existe para cuidar do meio de campo entre o endpoint e a nossa regra de negócio, que irá processar requisições de saque dos nossos usuários**.
+Felizmente, hoje em dia quase todo editor te dá a possibilidade de renomear coisas no código de forma extremamente simples e rápida. Então, se você ainda não usa isso no seu editor, trate de configurar essa funcionalidade pra ontem. E se você tiver uma boa cobertura de testes, mudar o nome de algo é mais seguro ainda.
 
 Pra mostrar outro exemplo real disso, vou pegar um trecho de código em Go de um projeto pessoal meu.
 Eu troquei os nomes das funções e parâmetros que estou usando num trecho de código. Você consegue entender com facilidade o que está se passando no código abaixo?
@@ -72,7 +69,8 @@ Confesso que não acho esse trecho de código o mais legível que eu já escrevi
 
 
 ## Use e abuse de enums, constantes e afins
-Muitas vezes nos vemos na situação em que precisamos usar um valor hardcoded no nosso código, tipo, o nosso valor não vai mudar e só vamos usa-lo em algum lugar, logo bate a vontade de simplemente colocar o valor que você quer e pronto. Quando acontecer algo parecido, coloque esse valor dentro de uma constante ou variavel, ou então se você estiver mexendo com numeros crus que representam algo além de um simples numero, use um Enum ou algo parecido que é fornecido na sua linguagem.
+Muitas vezes nos vemos na situação em que precisamos usar um valor hardcoded no nosso código, tipo, o nosso valor não vai mudar e só vamos usa-lo em algum lugar, logo bate a vontade de simplemente colocar o valor que você quer e pronto.
+Quando sujir uma situação parecida, coloque esse valor dentro de uma constante ou variavel, ou então se você estiver mexendo com números crus que representam algo além de um simples número, use um Enum ou algo parecido que é fornecido na sua linguagem.
 
 ```javascript
 
@@ -80,8 +78,8 @@ function IgnoreVideos()
 {
    let videos = Array.from(document.querySelectorAll("selector"));
 
-   videos.filter(function (video) {
-
+   videos
+   .filter(function (video) {
         return parseInt(video.querySelectoAll("selector").innerText.replace(".", "")) < 1000;
     })
     .forEach(function(video) {
@@ -99,7 +97,8 @@ function IgnoreVideos()
 {
    let videos = Array.from(document.querySelectorAll("selector"));
 
-   videos.filter(function (video) {
+   videos
+   .filter(function (video) {
         const MINIMUM_VIEWS = 1000;
         let numberOfViews = parseInt(video.querySelectoAll("selector").innerText.replace(".", ""));
 
@@ -111,9 +110,9 @@ function IgnoreVideos()
 }
 
 ```
-Essa mudança não foi nada de extraordinário e sendo sincero eu nem achei que o nome da constante seja bom, mas o simples fato de adicionar nome a coisas que antes eram um monte de código já trouxe muito mais clareza pra esse trecho de código.
+Essa mudança não foi nada de extraordinário e sendo sincero eu nem achei que o nome da constante seja bom, mas o simples fato de adicionar nome a coisas que antes eram só um monte de código já trouxe muito mais clareza pra esse trecho de código.
 
-Outra melhoria seria jogar em uma função esse código que pegao numero de views em um vídeo, pois além de tirar esse querySelectorAll feio da nossa frente, também tornaria o código reaproveitavel e nós poderiamos dar um bom nome pra essa função, deixando ainda mais claro o que o nosso código faz.
+Outra melhoria seria jogar esse código que pega o numero de views em uma função, pois além de tirar esse `innerText.replace` feio da nossa frente, também tornaria o código reaproveitável e nós poderiamos escolher um bom nome pra essa função, deixando ainda mais claro o que o nosso código faz.
 
 ## Procure nomear variaveis com nomes que indicam o que está sendo mensusado e a sua unidade
 Imagine que eu preciso criar uma variavel para guardar o numero de dias que a minha entrega demorou pra chegar dos correios. Eu poderia usar uma variavel chamada `days`, é um nome OK, mas podemos achar um nome melhor ainda.
@@ -132,6 +131,6 @@ Não sei quanto a você, mas eu busco nomes no meu código o tempo inteiro, seja
 
 Uma boa forma de resolver isso é evitar ao máximo usar nomes genéricos no código. Um exemplo de nome genérico seria a variavel `days` do trecho acima. Evite também usar variaveis de uma só letra porque buscar por essa variável depois será como procurar agulha no palheiro. A única situação onde que acho plausível usar uma variavel com esse tipo de nome é dentro de um for.
 
-## Substantivos para classes, verbos para métodos
-
 ## Conclusão
+Bom, esse artigo já está ficando um pouco grande então vamos parar por aqui. O tema de nomes é algo extremamente importante para o desenvolvimento de software, não é atoa que esse tema é abordado logo no segundo capitulo do livro, e por isso eu acho importante que praticar dar bons nomes às coisas no seu código, e ter sempre à mão alguma ferramenta para refatorar código e trocar o nome de algo sem muita dor de cabeça (testes pra garantir que nada foi quebrado são sempre bem vindos).
+No próximo artigo eu pretendo abordar o assunto de funções. Em minha humilde opinião a função é a unidade de código mais importante em um software. Fazendo o bom uso das funções seu código tende a ser organizado e fácil de manter, não importando qual paradigma você está usando.
