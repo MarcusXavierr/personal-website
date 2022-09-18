@@ -53,7 +53,7 @@ lista.reduce(somador, 0)
 lista = [1..10] -- Cria uma lista de 1 até 10
 foldl (\x acumulador -> x + acumulador ) 0 lista
 -- Output: 55
--- Ou então nós poderiamos ter feito isso aqui que daria o mesmo resultado
+-- Ou então nós poderíamos ter feito isso aqui que daria o mesmo resultado
 foldl (+) 0 lista
 ```
 Como você pode ver, o reduce torna seu código muito menos verboso, e na minha opinião, esse jeito minimalista e declarativo é bem elegante, mas creio que seja justamente por isso que a função **fold** (mais conhecida como **reduce**) seja tão incompreendida.
@@ -75,7 +75,7 @@ Obs: O parâmetro initialValue também é opcional, mas eu considero ele importa
 ````js
 array.reduce(function(acumulador, currentValue), initialValue)
 
-//mas vamos criar uma função que recebe o array como ultimo parametro
+//mas vamos criar uma função que recebe o array como ultimo parâmetro
 meuReduce(function(acumulador, valorAtual), valorInicial, lista)
 ````
 Agora vamos implementar logo a nossa versão simplificada do reduce
@@ -83,14 +83,14 @@ Agora vamos implementar logo a nossa versão simplificada do reduce
 ```js
 function meuReduce(funcaoAnonima, acumulador, lista) {
     // No reduce eu basicamente vou percorrer a minha lista e ir salvando no meu acumulador
-    // o resultado da minha função anonima
+    // o resultado da minha função anônima
     // Eu usei um for, mas poderia ser feito usando recursão também.
     for(let i = 0; i < lista.length; i++) {
-        //Aqui o meu acumulador vai receber o resultado da computação da minha função anonima
+        //Aqui o meu acumulador vai receber o resultado da computação da minha função anônima
         // Veja que eu estou usando "=" e não "+=".
         // Por isso estou passando o meu acumulador pra minha função
         // A ideia é como se ele estivesse sendo incrementado
-        acumulador = funcaoAnonima(acumulador, lista[i])
+        acumulador = funcaoAnônima(acumulador, lista[i])
     }
     //Por fim eu simplesmente retorno o meu acumulador
     return acumulador
@@ -119,7 +119,7 @@ meuReduce(dobra_array, [], lista)
 // Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 ```
 
-Sim, eu diria que uma das principais funções do reduce é pegar uma lista de items e retornar um unico item. Como nas duas primeiras funções onde nós pegávamos umas lista de inteiros e **REDUZÍAMOS** a lista a somente um inteiro.
+Sim, eu diria que uma das principais funções do reduce é pegar uma lista de itens e retornar um único item. Como nas duas primeiras funções onde nós pegávamos umas lista de inteiros e **REDUZÍAMOS** a lista a somente um inteiro.
 
 Mas também é possível que nosso reduce receba uma lista e retorne outra lista. Basta que o valor inicial seja um array vazio, para que o acumulador consiga usar a função push para colocar itens dentro de si.
 
@@ -128,9 +128,7 @@ Bom, esse artigo já está ficando grande demais, então vamos somente recapitul
 
 * O reduce (mais conhecido como fold em algumas linguagens) é uma função que pode fazer muitas coisas com poucas linhas de código
 * A função reduce é bastante usada para pegar uma lista de valores e **reduzir** essa lista a somente um item.
-* O reduce recebe uma função anonima que será aplicada ao acumulador e a cada item da sua lista, recebe um valor inicial para o acumulador, e recebe a própria lista
-* A função anonima deve receber como parâmetro, no minimo o seu acumulador e o item atual da sua lista (lembre-se que a função vai ser chamada dentro de um loop que vai varrer toda a sua lista). Além desses dois itens obrigatórios algumas linguagens te permitem colocar mais parâmetros na sua função anonima, mas esses são opcionais.
-
+* O reduce recebe uma função anônima que será aplicada ao acumulador e a cada item da sua lista, recebe um valor inicial para o acumulador, e recebe a própria lista
+* A função anônima deve receber como parâmetro, no mínimo o seu acumulador e o item atual da sua lista (lembre-se que a função vai ser chamada dentro de um loop que vai varrer toda a sua lista). Além desses dois itens obrigatórios algumas linguagens te permitem colocar mais parâmetros na sua função anônima, mas esses são opcionais.
 
 E é isso pessoal. Foi bom escrever um pouco sobre essa função que é bem confusa de se entender quando vemos ela pela primeira vez.
-Até a próxima!
