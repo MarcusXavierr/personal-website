@@ -90,7 +90,7 @@ function meuReduce(funcaoAnonima, acumulador, lista) {
         // Veja que eu estou usando "=" e não "+=".
         // Por isso estou passando o meu acumulador pra minha função
         // A ideia é como se ele estivesse sendo incrementado
-        acumulador = funcaoAnônima(acumulador, lista[i])
+        acumulador = funcaoAnonima(acumulador, lista[i])
     }
     //Por fim eu simplesmente retorno o meu acumulador
     return acumulador
