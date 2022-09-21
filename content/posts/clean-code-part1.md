@@ -2,6 +2,7 @@
 title: "Clean Code: Escolhendo bons nomes"
 summary: "Bons nomes são demasiadamente importantes no desenvolvimento de software e este artigo visa cobrir as melhores dicas do livro Clean Code sobre a escolha de bons nomes"
 date: 2022-08-06T10:10:58-03:00
+tags: ['Code']
 draft: false
 ---
 ## Introdução
