@@ -1,39 +1,29 @@
 ---
 title: "Clean Code: Fazendo bom uso das funções | Parte 1"
-date: 2022-09-23T12:17:03-03:00
-draft: true
+date: 2022-09-17T12:17:03-03:00
+draft: false
 ---
+Parafraseando o próprio uncle bob, funções são a primeira linha de organização de qualquer programa. Ou seja, na maioria das linguagens, uma função (ou método) é a "menor" forma de organizar seu código.
 
-Parafraseando o próprio uncle bob, funções são a primeira linha de organização de qualquer programa. Ou seja, na maioria das linguagens, uma função (ou método), é a "menor" forma de organizar seu código, você pode ter classes, interfaces e tudo mais, mas dentro disso tudo estarão funções mantendo sua codebase organizada, ou bagunçada, depende de como você as usa.
-
-{{TODO: talvez enrolar mais}}
+Você pode ter classes, interfaces e tudo mais, mas dentro disso tudo estarão funções mantendo sua codebase organizada. Ou bagunçada, depende de como você as usa. Eu diria que essa é uma das partes mais importantes dessa série de artigos justamente por isso.
 
 ## Pequenas!
-Aqui o autor diz que funções deveriam ser pequenas, e eu não posso concordar mais com ele. Raramente existe um motivo plausível para que as suas funções tenham mais do que vinte linhas. Nessa seção do livro, o uncle bob é mais extremista e diz que uma função pequena tem por volta de **quatro** linhas.
+Aqui o autor diz que funções deveriam ser pequenas, e eu concordo totalmente com isso. Raramente existe um motivo plausível para que as suas funções tenham mais do que vinte e cinco linhas. Nessa seção do livro, o uncle bob é mais extremista e diz que uma função pequena tem por volta de **quatro** linhas.
 
-Você pode pensar que ele enlouqueceu, mas em algumas linguagens como haskell é até comum ver uma codebase inteira composta em sua maioria por minusculas funções de quatro ou cinco linhas.
+Você pode pensar que ele enlouqueceu, mas em algumas linguagens como haskell é até comum ver uma codebase inteira composta em sua maioria por minúsculas funções de quatro ou cinco linhas.
 
-O código fica muito mais organizado e bonito dessa forma, na minha opinião. E manter as suas funções pequenas trazem vantagens que eu vou explicar daqui a pouco.
+O código fica muito mais organizado e bonito dessa forma, na minha opinião. O problema é que muitas vezes acabamos o código de forma apressada e damos muitas responsabilidades pra mesma função. Não tem problema fazer isso, contanto que limpe o seu código depois. Praticamente todo editor hoje em dia fornece a opção de selecionar um bloco de código e extrair uma função (ou seja, pegar esse bloco e automaticamente jogar numa nova função). Trate de configurar essa opção no seu editor pra ontem, é **muito** útil pra refatorar o código.
 
 ## Nada de Hadouken, por favor
 O autor sugere que as suas funções tenham somente um ou dois níveis de identação no máximo, ou seja, você deveria ao máximo evitar aninhados. Sério, se tem um if aninhado no seu código, ele muito provavelmente poderia ser abstraído em uma nova função.
 
 Outra dica polêmica do uncle bob, da qual eu gosto bastante, é que deveria ter somente **uma** linha de código em blocos como `if`, `else`, `while`, etc. Eu acho essa dica um pouco extrema em algumas situações, mas se estiver um monte de coisa acontecendo dentro do seu `if`, isso provavelmente deveria ser abstraído dentro de um novo método (lembra que as suas funções deveriam ser pequenas? 🙃).
 
-Agora deixo com você um exemplo de como seria um código cheio de Hadoukens e ifs enormes.
-
-{{Código cheio de lixo}}
-
-E abaixo como seria o código que segue as dicas dessa seção
-
-{{Código limpinho}}
-
 ## Faça somente uma coisa, e faça direito
-Fazer uma função que faz mais de uma coisa fere tantos princípios que é até difícil de listar todos, mas os principais problemas de ter uma função "multitarefa" são:
+Fazer uma função que faz mais de uma coisa fere tantas "boas práticas" que é até difícil de listar todas, mas os principais problemas de ter uma função "multitarefa" são:
 * Fere o princípio de responsabilidade única do SOLID
 * Como a função faz várias coisas, fica muito mais difícil dar um nome descritivo pra ela
 * Muito provavelmente não será uma função pequena
-* etc.
 
 Essa dica de criar funções que fazem somente uma coisa já é algo extremamente antiga, desenvolvedores muito inteligentes já aplicavam isso nos anos 70. No desenvolvimento do Unix o programadores fizeram ferramentas que **faziam somente uma coisa, mas faziam direito**.
 
