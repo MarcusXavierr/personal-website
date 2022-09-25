@@ -1,7 +1,7 @@
 ---
 title: "Clean Code: Fazendo bom uso das funções | Parte 1"
 date: 2022-09-17T12:17:03-03:00
-draft: true
+draft: false
 ---
 Parafraseando o próprio uncle bob, funções são a primeira linha de organização de qualquer programa. Ou seja, na maioria das linguagens, uma função (ou método) é a "menor" forma de organizar seu código.
 
