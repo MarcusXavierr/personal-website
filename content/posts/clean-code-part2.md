@@ -19,20 +19,11 @@ O autor sugere que as suas funções tenham somente um ou dois níveis de identa
 
 Outra dica polêmica do uncle bob, da qual eu gosto bastante, é que deveria ter somente **uma** linha de código em blocos como `if`, `else`, `while`, etc. Eu acho essa dica um pouco extrema em algumas situações, mas se estiver um monte de coisa acontecendo dentro do seu `if`, isso provavelmente deveria ser abstraído dentro de um novo método (lembra que as suas funções deveriam ser pequenas? 🙃).
 
-Agora deixo com você um exemplo de como seria um código cheio de Hadoukens e ifs enormes.
-
-{{Código cheio de lixo}}
-
-E abaixo como seria o código que segue as dicas dessa seção
-
-{{Código limpinho}}
-
 ## Faça somente uma coisa, e faça direito
-Fazer uma função que faz mais de uma coisa fere tantos princípios que é até difícil de listar todos, mas os principais problemas de ter uma função "multitarefa" são:
+Fazer uma função que faz mais de uma coisa fere tantas "boas práticas" que é até difícil de listar todas, mas os principais problemas de ter uma função "multitarefa" são:
 * Fere o princípio de responsabilidade única do SOLID
 * Como a função faz várias coisas, fica muito mais difícil dar um nome descritivo pra ela
 * Muito provavelmente não será uma função pequena
-* etc.
 
 Essa dica de criar funções que fazem somente uma coisa já é algo extremamente antiga, desenvolvedores muito inteligentes já aplicavam isso nos anos 70. No desenvolvimento do Unix o programadores fizeram ferramentas que **faziam somente uma coisa, mas faziam direito**.
 
