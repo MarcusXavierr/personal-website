@@ -1,7 +1,7 @@
 ---
 title: "Clean Code: Fazendo bom uso das funções | Parte 2"
 date: 2022-09-20T22:44:22-03:00
-draft: true
+draft: false
 ---
 
 ## Introdução
