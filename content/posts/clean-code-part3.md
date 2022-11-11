@@ -6,6 +6,7 @@ draft: false
 
 ## Introdução
 Passei alguns minutos pensando em como escrever uma introdução pra esse artigo, que é a continuação de um assunto que já foi introduzido anteriormente, mas acabei percebendo que isso não seria necessário, pois essa segunda introdução serviria somente para que o leitor não esbarrasse logo de cara com conteúdo do artigo de forma abrupta, e esse parágrafo de lero lero serviu perfeitamente para isso 😁.
+Agora, falando sério, esse artigo só fará sentido se você ler a parte 1 dele, por favor, leia.
 
 ## Um nível de abstração por função
 Para garantir que a nossa função faz somente **uma** coisa, nós precisamos ter certeza que os pedaços de código dentro da função estão no mesmo nível de abstração. O que eu quero dizer com isso é que se uma parte da sua função está cuidando de coisas bem abstratas, não faz muito sentido misturar isso com detalhes de implementação logo abaixo. Vou mostrar um trecho de código para clarificar isso.
