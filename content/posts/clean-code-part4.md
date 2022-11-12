@@ -5,7 +5,9 @@ draft: false
 ---
 
 ## Introdução
-A primeira impressão que tive sobre o capítulo sobre formatação é que ele só teria obviedades, afinal, formatar código não tem muito segredo, mas eu vi algumas provocações interessantes que gostaria de compartilhar. Por exemplo, se eu perguntasse que código funcionando é a coisa mais importante no trabalho de um Programador, a grande maioria das pessoas diria que sim. E o uncle bob no começo do capítulo lança uma provocação e diz que isso não é verdade.
+A primeira impressão que tive sobre o capítulo sobre formatação é que ele só teria obviedades, afinal, formatar código não tem muito segredo, mas eu vi algumas provocações interessantes que gostaria de compartilhar.
+
+Por exemplo, se eu perguntasse que código funcionando é a coisa mais importante no trabalho de um Programador, a grande maioria das pessoas diria que sim. E o uncle bob no começo do capítulo lança uma provocação e diz que isso não é verdade.
 
 Segundo o autor, comunicação eficiente (o que engloba uma formatação de código eficiente) é o principal trabalho de um desenvolvedor. E com "comunicação" eu entendo que ele também engloba código legível e fácil de manter. O Uncle bob expressa muito bem esse ideia nesse parágrafo abaixo.
 
@@ -25,9 +27,8 @@ A mesma ideia se aplica à código. Eu sei que algumas pessoas não gostam de co
 
 Por exemplo:
 
-{{codigo com funcs juntas e separadas}}
+### Versão com tudo junto
 ```javascript
-//Versão com tudo junto
 function ignoreUserThreads(data) {
   const threads = getThreads()
   threads.forEach((thread) => {
@@ -57,8 +58,10 @@ function getTitle(thread) {
       return ''
   }
 }
+```
 
-//Versão com código separado
+### Versão com código separado
+```javascript
 function ignoreUserThreads(data) {
   const threads = getThreads()
 
@@ -97,7 +100,7 @@ function getTitle(thread) {
 ```
 O que você prefere? Eu particularmente prefiro a segunda opção
 
-## Seja gente fina com o leitor do código, tente colocar coisa relacionadas o mais perto possível
+## Seja gente fina com o leitor do código, tente colocar coisas relacionadas o mais perto possível
 Uma das coisas que eu mais detesto é ter que ficar indo pra cima e pra baixo no código pra entender o que está acontecendo nele. E uma das formas de mitigar isso é deixando códigos que se relacionam, o mais próximo um do outro.
 
 Eu particularmente gosto de ler código de cima pra baixo, como se fosse um texto mesmo, então se a função *A* chama a função *B*, eu sempre tento deixar a função *A* em algum lugar por cima da função *B*, e nunca o contrário. Por exemplo:
@@ -113,7 +116,7 @@ def b:
 
 Claro que nem sempre isso é possível por N questões, mas é sempre bom tentar fazer isso pra facilitar a vida do leitor 😁.
 
-##TL;DR
+## TL;DR
 Geralmente é melhor seguir um estilo de código já definido do que inventar moda. Baixe um formatador de código automático (como o prettier ou phpcbf, por exemplo).
 
-Separe os os seus blocos de código com espaços, esse artigo aqui ficaria péssimo pra ler se não tivesse espaços separando os blocos, por que você acha que seria diferente com o seu código?
+Separe os os seus blocos de código com espaços, a leitura desse artigo ficaria péssima se não tivesse espaços separando os blocos de texto, por que você acha que seria diferente com o seu código?
