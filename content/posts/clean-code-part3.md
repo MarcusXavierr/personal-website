@@ -91,4 +91,4 @@ Ufa, finalmente terminamos de cobrir o capítulo sobre funções. Esse capítulo
 
 E pra finalizar esse artigo, deixo um insight do uncle bob que achei bem interessante.
 
-*"**Programadores experientes veem os sistemas como histórias a serem contadas** em vez de programas a serem escritos.[...]Mas jamais se esqueça de que **seu objetivo verdadeiro é contar a história do sistema**, e que as funções que você escrever precisam estar em perfeita sincronia e formar uma linguagem clara e precisa para lhe ajudar nessa narração"*
+>*"**Programadores experientes veem os sistemas como histórias a serem contadas** em vez de programas a serem escritos.[...]Mas jamais se esqueça de que **seu objetivo verdadeiro é contar a história do sistema**, e que as funções que você escrever precisam estar em perfeita sincronia e formar uma linguagem clara e precisa para lhe ajudar nessa narração"*
