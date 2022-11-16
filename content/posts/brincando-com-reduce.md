@@ -118,6 +118,11 @@ meuReduce(multiplicador, 1, lista) //o valor inicial precisa ser 1, pois se for 
 meuReduce(dobra_array, [], lista)
 // Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 ```
+Vamos dar olhar mais a fundo agora como o `meuReduce` está rodando com a função `somador`.
+
+```javascript
+
+```
 
 Sim, eu diria que uma das principais funções do reduce é pegar uma lista de itens e retornar um único item. Como nas duas primeiras funções onde nós pegávamos umas lista de inteiros e **REDUZÍAMOS** a lista a somente um inteiro.
 
