@@ -1,7 +1,7 @@
 ---
 title: "Clean Code: Testes"
 date: 2022-11-12T20:46:15-03:00
-draft: true
+draft: false
 ---
 
 Falar que testes são importantes para a mantenabilidade do código é chover no molhado, mas é sempre bom ter em mente que nem todo teste trás tanto benefício assim. Testes que quebram o tempo todo, são difíceis de estender, e complicados de entender, são mais prejudiciais do que benéficos para a sua codebase, e o autor explica o porquê nesse trecho.
