@@ -1,7 +1,7 @@
 ---
 title: "Clean Code: Classes"
 date: 2022-11-15T15:33:55-03:00
-draft: true
+draft: false
 ---
 
 ## TL;DR
