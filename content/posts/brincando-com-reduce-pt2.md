@@ -1,16 +1,18 @@
 ---
-title: "Brincando Com A Função Reduce - Parte 2"
+title: "Entendendo A Função Reduce - Parte 2"
 date: 2022-11-28T21:28:07-03:00
 draft: false
 ---
 Eu dei uma relida no artigo sobre reduce que tinha publicado anteriormente, e percebi algumas coisas que eu gostaria de adicionar, vamos lá.
 
 ## Tipos de retorno no reduce
-O reduce recebe uma lista do tipo X e geralmente te retorna um único valor do tipo X, vamos dizer que isso é do tipo [X] -> X, onde X pode ser um objeto, um número, qualquer coisa. Mas isso não é obrigatório. É bem possível que o reduce te retorne um outro tipo, nesse caso seria [X] -> Y, recebe uma lista de X (qualquer coisa) e retorna um Y (qualquer valor de tipo diferente do X).
+O reduce recebe uma lista do tipo `X` (onde `X` pode ser um objeto, um número, qualquer coisa) e geralmente te retorna um único valor do tipo `X`, vamos dizer que isso é do tipo `[X] -> X`.
 
-Por exemplo, na função somador do artigo passado, eu recebia uma lista de números, e retornava um único numero que é a soma da lista inteira, isso seria [X] -> X, mas logo abaixo, eu mostrei o reduce recebendo uma lista de números, e retornando outra lista de números, isso seria [X] -> Y.
+Mas isso não é obrigatório. É bem possível que o reduce te retorne um outro tipo (nesse caso seria `[X] -> Y`), ou seja, pode receber uma lista de inteiros e retornar uma string ou um objeto, por exemplo.
 
-No Javascript, **geralmente**, se você chama seu reduce do tipo [X] -> X, se você quiser fazer algo do tipo [X] -> Y, **geralmente**, terá que passar um valor inicial. Como nos exemplos abaixo
+Vou exemplificar com código logo abaixo. Aqui eu tenho duas funções. Na primeira eu recebo uma lista de números, e retorno um único numero (que é a soma de todos os valores dessa lista). Isso seria `[X] -> X`.
+
+Mas na segunda função, eu recebo uma lista de strings e retorno uma lista de objetos, isso seria `[X] -> Y`.
 
 ```javascript
 //Tipo [X] -> X
@@ -23,14 +25,13 @@ No Javascript, **geralmente**, se você chama seu reduce do tipo [X] -> X, se vo
 ['nome', 'aleatorio'].reduce((acc, value) => acc.concat({name: value, score: 0}), [])
 //retorna [ { name: 'nome', score: 0 }, { name: 'aleatorio', score: 0 } ]
 ```
+
+No Javascript, **geralmente**, se você chama seu reduce **sem** passar um valor inicial, ele será do tipo `[X] -> X`. Já se você quiser fazer algo do tipo `[X] -> Y`, **geralmente**, terá que passar um valor inicial, que é o segundo parametro da função reduce, logo após a sua função anônima. No exemplo acima eu coloquei um array vazio.
+
 ## Debuggando o reduce
-Bom, a ideia aqui é criar uma reduce, e ir passo a passo pra ver o que ele está fazendo.
+Bom, a ideia aqui é criar um reduce, e ir passo a passo pra ver o que ele está fazendo. Primeiro vou reimplementar a função somador e ver como os valores vão mudando a cada passo, como aconteceria num debugger mesmo. Depois explicarei um exemplo um pouco mais complexo (e útil).
 
 ```javascript
-//Vou reimplementar a função somador e ver como os valores vão mudando a cada passo
-//Como aconteceria numa debugger mesmo
-//Depois explicarei um exemplo um pouco mais complexo (e útil)
-
 const values = [1,2,3,4,5]
 values.reduce((acc, value) => acc + value)
 
@@ -56,11 +57,13 @@ O resultado dessa soma irá sobrescrever o valor de acc, que passará a ser 3. V
 //          10   5        10  + 5 = 15
 [].reduce((acc, value) => acc + value)
 ```
-Certo, agora o nosso `acc` vale 15, e a nossa lista está vazia, o que acontece agora? Bom, quando a está vazia, o reduce simplesmente pega o que está no `acc` e retorna para o usuário. É por isso que o exemplo abaixo retorna o valor 1, e não o valor 500.
+Certo, agora o nosso `acc` vale 15, e a nossa lista está vazia, o que acontece agora? Bom, quando a lista está vazia, o reduce simplesmente pega o que está no `acc` e retorna para o usuário. É por isso que o exemplo abaixo retorna o valor 1, e não o valor 500.
 
 ```javascript
-//Eu vou passar 1 como valor inicial para a minha função, ou seja, o acc começará valendo 1
-//Mas como a minha lista está vazia, o código return 500 nem rodará, o reduce vai retornar 1 logo
+//Eu vou passar 1 como valor inicial para a minha função.
+//ou seja, o acc começará valendo 1
+//Mas como a minha lista está vazia, o código return 500 nem rodará,
+//o reduce vai retornar 1 logo
 [].reduce((acc, value) => {return 500}, 1)
 //retorna 1
 ```
@@ -93,6 +96,8 @@ Coloquei esse else pra deixar claro que retorna um ou outro, nesse caso ele é o
 ```javascript
 //Vamos dar o primeiro passo então
 //como não passei valor inicial o reduce faz o mesmo esquema de antes
+//que é pegar o primeiro item e colocar no acumulador (valor anterior),
+//e botar o segundo item no valor atual
 
 const scores = [
 { name: 'Huguinho', score: 20},
@@ -104,10 +109,11 @@ const scores = [
 //                 25     >              20 é true
     if (actualValue.score > previousValue.score) return actualValue
     else return previousValue
+    //retorno o meu actualValue (pontuação do zezinho)
 })
 
 ```
-Como o score do meu valor atual é maior do que o do valor anterior, eu retorno o meu valor atual e sobrescrevo o valor anterior. Agora o nosso próximo passo está assim.
+Como o score do meu valor atual é **maior** do que o do valor anterior, eu retorno o meu valor atual, sobrescrevendo o `previousValue` com ele. Agora o nosso próximo passo está assim.
 
 ```javascript
 //   {name: 'Zezinho'...} {name: 'Luizinho'...}
@@ -115,11 +121,15 @@ Como o score do meu valor atual é maior do que o do valor anterior, eu retorno 
 //                 15     >              25 é false
     if (actualValue.score > previousValue.score) return actualValue
     else return previousValue
+    //retorno o previousValue (pontuação do zezinho)
 })
 
 ```
-E como o meu valor atual não tem um score maior do que o anterior, vamos retornar o valor anterior para ser salvo no nosso acumulador (ou `previousValue` nesse caso).
-O reduce irá rodar de novo e vai ver que a lista esvaziou, aí ele vai simplesmente retornar o que tiver no meu acumulador. E nesse caso isso é a pontuação do zezinho. `{ name: 'Zezinho', score: 25}`. Se você quiser tirar a prova, abra o node ou o console do navegador e roda o código completo abaixo
+E como o meu valor atual não tem um score maior do que o anterior, vamos retornar o valor anterior para ser salvo no nosso acumulador (ou `previousValue` nesse caso), basicamente deixando do mesmo jeito que estava.
+
+O reduce irá rodar novamente e verá que a lista está vazia, aí ele simplesmente retornará o que tiver no meu acumulador. E nesse caso isso é a pontuação do zezinho. `{ name: 'Zezinho', score: 25}`.
+
+Se você quiser tirar a prova, abra o node ou o console do navegador e rode o código completo abaixo
 
 ```javascript
 const scores = [
