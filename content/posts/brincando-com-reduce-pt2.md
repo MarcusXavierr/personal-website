@@ -144,9 +144,8 @@ scores.reduce((previousValue, actualValue) => {
 ```
 
 ## Conclusão
-Bom, esse artigo serviu mais para explicar melhor como o reduce computa os
-valores da lista e reduz um `[X]` em outra coisa como um `X` ou um `Y`. Ainda
-existem muitas coisas para serem abordadas, por exemplo: como map e filter são
-derivados do reduce, como é uma recursão por trás do reduce, como usar os
-outros dois parâmetros da função interna do reduce que nós ainda não usamos.
+Bom, esse artigo serviu mais para explicar melhor como o reduce computa os valores da lista e reduz um `[X]` em outra coisa como um `X` ou um `Y`.
+
+Ainda existem muitas coisas para serem abordadas, por exemplo: como map e filter são derivados do reduce, como é uma recursão por trás do reduce, como usar os outros dois parâmetros da função interna do reduce que nós ainda não usamos.
+
 Mas por hoje ficamos por aqui. Eu posso abordar esses temas em artigos futuros.
