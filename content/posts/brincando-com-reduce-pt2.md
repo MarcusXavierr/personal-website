@@ -1,5 +1,5 @@
 ---
-title: "Brincando Com Reduce Parte 2"
+title: "Brincando Com A Função Reduce - Parte 2"
 date: 2022-11-28T21:28:07-03:00
 draft: false
 ---
