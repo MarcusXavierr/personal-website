@@ -1,5 +1,5 @@
 ---
-title: "Brincando Com A Função Reduce"
+title: "Entendendo A Função Reduce"
 date: 2022-08-05T16:38:45-03:00
 summary: "A função reduce é bastante incompreendida por muitos programadores. Tendo isso em vista hoje vamos mexer um pouco com essa função e implementarmos a nossa própria versão para clarificar mais o que essa função faz debaixo dos panos"
 tags: ['Code', 'Functional_programming']
