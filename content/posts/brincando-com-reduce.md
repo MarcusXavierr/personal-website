@@ -5,6 +5,8 @@ summary: "A função reduce é bastante incompreendida por muitos programadores.
 tags: ['Code', 'Functional_programming']
 featuredImage: "https://i.ibb.co/xCGThbJ/reduce.jpg"
 ---
+A parte 2 se encontra aqui. [Entendendo a função reduce - Parte 2](https://marcusxavier.dev/posts/brincando-com-reduce-pt2/)
+
 ## Introdução
 Faz um tempo que eu não escrevo nenhum blogpost. Nesse período eu andei estudando haskell e achei uma função que bem interessante chamada **fold**, mas essa função é mais conhecida como **reduce**. O que faz essa função ser bem interessante é o fato de que ela contém bastante informação em pouquíssimas linhas de código.
 
@@ -38,7 +40,7 @@ sumArrayValues($lista);
 ```
 #### Versão JS com reduce
 
-```js
+```javascript
 //Crio a lista
 let lista = [1,2,3,4,5,6,7,8,9,10]
 
@@ -65,22 +67,22 @@ Pra entender como o reduce funciona, nós vamos implementar a nossa própria ver
 Vou usar javascript, mas funcionaria com praticamente qualquer linguagem.
 Aqui está a definição original do array.reduce
 
-```js
+```javascript
 array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
 ```
 Mas como os parâmetros `currentIndex` e `arr` são opcionais, vou fazer uma definição mais simples para explicar de forma mais didática.
 
 Obs: O parâmetro initialValue também é opcional, mas eu considero ele importante demais para omitirmos na nossa implementação
 
-````js
+```javascript
 array.reduce(function(acumulador, currentValue), initialValue)
 
 //mas vamos criar uma função que recebe o array como ultimo parâmetro
 meuReduce(function(acumulador, valorAtual), valorInicial, lista)
-````
+```
 Agora vamos implementar logo a nossa versão simplificada do reduce
 
-```js
+```javascript
 function meuReduce(funcaoAnonima, acumulador, lista) {
     // No reduce eu basicamente vou percorrer a minha lista e ir salvando no meu acumulador
     // o resultado da minha função anônima
@@ -98,7 +100,8 @@ function meuReduce(funcaoAnonima, acumulador, lista) {
 ```
 E se eu chamar a minha nova função, tudo deve funcionar
 
-```js
+```javascript
+//Se você quiser, pode copiar o codigo acima e esse aqui e colar no console do navegador pra ver o resultado também
 const somador = (acumulador, valor) => acumulador + valor
 
 const multiplicador = (acumulador, valor) => acumulador * valor
@@ -117,11 +120,8 @@ meuReduce(multiplicador, 1, lista) //o valor inicial precisa ser 1, pois se for 
 
 meuReduce(dobra_array, [], lista)
 // Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-```
-Vamos dar olhar mais a fundo agora como o `meuReduce` está rodando com a função `somador`.
 
-```javascript
-
+//Se você fizer lista.reduce(dobra_array, []) o resultado será o mesmo
 ```
 
 Sim, eu diria que uma das principais funções do reduce é pegar uma lista de itens e retornar um único item. Como nas duas primeiras funções onde nós pegávamos umas lista de inteiros e **REDUZÍAMOS** a lista a somente um inteiro.
@@ -136,4 +136,4 @@ Bom, esse artigo já está ficando grande demais, então vamos somente recapitul
 * O reduce recebe uma função anônima que será aplicada ao acumulador e a cada item da sua lista, recebe um valor inicial para o acumulador, e recebe a própria lista
 * A função anônima deve receber como parâmetro, no mínimo o seu acumulador e o item atual da sua lista (lembre-se que a função vai ser chamada dentro de um loop que vai varrer toda a sua lista). Além desses dois itens obrigatórios algumas linguagens te permitem colocar mais parâmetros na sua função anônima, mas esses são opcionais.
 
-E é isso pessoal. Foi bom escrever um pouco sobre essa função que é bem confusa de se entender quando vemos ela pela primeira vez.
+E é isso pessoal. Foi bom escrever um pouco sobre essa função que é bem confusa de se entender quando vemos ela pela
