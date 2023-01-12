@@ -3,7 +3,9 @@ title: "Entendendo A Função Reduce - Parte 2"
 date: 2022-11-28T21:28:07-03:00
 draft: false
 ---
-Eu dei uma relida no artigo sobre reduce que tinha publicado anteriormente, e percebi algumas coisas que eu gostaria de adicionar, vamos lá.
+A parte 1 do artigo se encontra aqui. [Entendendo A Função Reduce - Parte 1](https://marcusxavier.dev/posts/brincando-com-reduce/)
+
+Eu dei uma relida no artigo sobre reduce que tinha publicado anteriormente, e percebi algumas coisas que eu gostaria de adicionar, vamos lá. Se você não leu o artigo anterior, eu recomendo ler.
 
 ## Tipos de retorno no reduce
 O reduce recebe uma lista do tipo `X` (onde `X` pode ser um objeto, um número, qualquer coisa) e geralmente te retorna um único valor do tipo `X`, vamos dizer que isso é do tipo `[X] -> X`.
@@ -20,7 +22,8 @@ Mas na segunda função, eu recebo uma lista de strings e retorno uma lista de o
 //retorna 10
 
 //Tipo [X] -> Y
-//Aqui eu recebo uma lista de pessoas, e quero criar uma lista de objetos
+//Aqui eu recebo uma lista de pessoas,
+//e quero criar uma lista de objetos
 //Onde cada pessoa está com o score zerado
 ['nome', 'aleatorio'].reduce((acc, value) => acc.concat({name: value, score: 0}), [])
 //retorna [ { name: 'nome', score: 0 }, { name: 'aleatorio', score: 0 } ]
@@ -147,5 +150,3 @@ scores.reduce((previousValue, actualValue) => {
 Bom, esse artigo serviu mais para explicar melhor como o reduce computa os valores da lista e reduz um `[X]` em outra coisa como um `X` ou um `Y`.
 
 Ainda existem muitas coisas para serem abordadas, por exemplo: como map e filter são derivados do reduce, como é uma recursão por trás do reduce, como usar os outros dois parâmetros da função interna do reduce que nós ainda não usamos.
-
-Mas por hoje ficamos por aqui. Eu posso abordar esses temas em artigos futuros.
