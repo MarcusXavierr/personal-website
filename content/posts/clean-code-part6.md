@@ -2,6 +2,7 @@
 title: "Clean Code: Classes"
 date: 2022-11-15T15:33:55-03:00
 draft: false
+series: ['Fundamentos de Clean Code']
 ---
 
 ## TL;DR
