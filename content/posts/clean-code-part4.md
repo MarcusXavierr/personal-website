@@ -2,6 +2,7 @@
 title: "Clean Code: Formatação"
 date: 2022-11-11T20:25:36-03:00
 draft: false
+series: ['Fundamentos de Clean Code']
 ---
 
 ## Introdução

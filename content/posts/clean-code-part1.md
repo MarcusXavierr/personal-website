@@ -4,6 +4,7 @@ summary: "Bons nomes são demasiadamente importantes no desenvolvimento de softw
 date: 2022-08-06T10:10:58-03:00
 tags: ['Code']
 draft: false
+series: ['Fundamentos de Clean Code']
 ---
 ## Introdução
 Clean code é provavelmente um dos livros mais famosos do desenvolvimento de software, provavelmente todo desenvolvedor já ouviu o nome desse livro.

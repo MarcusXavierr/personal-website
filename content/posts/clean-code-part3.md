@@ -2,6 +2,7 @@
 title: "Clean Code: Fazendo bom uso das funções | Parte 2"
 date: 2022-09-20T22:44:22-03:00
 draft: false
+series: ['Fundamentos de Clean Code']
 ---
 
 Esse artigo é a continuação do tema "funções", por favor leia a parte 1 primeiro.
