@@ -183,3 +183,6 @@ googleAnalytics = "G-WEKTJYV5Z7"
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 6
+
+[taxonomies]
+   series = "series"

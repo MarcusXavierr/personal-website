@@ -3,6 +3,7 @@ title: "Guia fundamental da programação orientada a objetos - Final"
 date: 2022-08-01T09:30:48-03:00
 tags: ['OOP', 'Code']
 featuredImage: "https://res.cloudinary.com/practicaldev/image/fetch/s--Fz6edMns--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6a7dahxhlb0eqflvn8d7.jpg"
+series: ['Guia Fundamental de POO']
 ---
 Agora que nós já vimos os pilares da POO e a sua importância, está na hora de abordar mais alguns aspectos importantes de orientação a objetos neste último artigo. Vamos falar um pouco sobre classes abstratas, interfaces e classes finais (conhecida como classe selada em algumas linguagens).
 

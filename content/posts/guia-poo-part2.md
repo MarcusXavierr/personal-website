@@ -3,6 +3,7 @@ title: "Guia fundamental da programação orientada a objetos - Parte 2 | Os pil
 date: 2022-08-01T09:29:19-03:00
 tags: ['OOP', 'Code']
 featuredImage: "https://res.cloudinary.com/practicaldev/image/fetch/s--JmAHtL5a--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6431uumz3l7wn7vtxs56.jpg"
+series: ['Guia Fundamental de POO']
 ---
 
 É impossível falar de programação orientada a objetos sem citar seus famosos quatro pilares. Seguir esses pilares é muito importante para que você possa conseguir todos os maravilhosos benefícios da POO. No artigo de hoje eu vou falar exclusivamente sobre esses pilares, e sempre que pertinente vou exemplificar com código e imagens.
