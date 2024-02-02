@@ -186,3 +186,17 @@ googleAnalytics = "G-WEKTJYV5Z7"
 
 [taxonomies]
    series = "series"
+
+## Configuring hugo to output json data from posts, it'll be used on elastic search
+[outputs]
+home = ["HTML", "RSS", "Bonsai"]
+
+[outputFormats.Bonsai]
+baseName = "bonsai"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[params.bonsai]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"]
