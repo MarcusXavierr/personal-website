@@ -25,7 +25,7 @@ O Elasticsearch foi criado então, **para ser uma forma fácil de usar todo o po
 ## Termos comuns do Elasticsearch
 Ao iniciar os estudos sobre Elasticsearch é normal se deparar com vários termos novos, e achar a ferramenta complicada por causa disso. A ideia aqui é explicar os principais termos deste banco de dados, e mostrar quando esse termo tem algum paralelo no mundo dos bancos relacionais.
 
-#### Documento
+### Documento
 É basicamente como uma row/linha no banco de dados relacional. A diferença está no fato de documentos serem salvos como objetos JSON.
 Quando você fizer buscas na API de `_search` do elastic, vai encontrar documentos com essa estrutura.
 
@@ -44,19 +44,19 @@ Os dados salvos pelo usuário estão dentro de `_source`, os outros campos são 
 	}
 }
 ```
-#### Índice
+### Índice
 É basicamente uma coleção de documentos do mesmo tipo. Ou seja, é como uma tabela de um banco de dados relacional.
 
-#### Node
+### Node
 Um `node` é uma instância do Elasticsearch que salva dados. Para salvar terabytes de dados no elastic, você pode ter vários nodes, cada um guardando um pedaço dos dados.
 Assim você pode escalar em várias máquinas diferentes, mesmo que cada uma tenha só alguns gigabytes de armazenamento, cada uma rodando os `nodes` que pode.
 Teoricamente falando, é como se cada `node` fosse um arquivo.
 
-#### Cluster
+### Cluster
 Se `nodes` são arquivos, `clusters` são pastas. Eles basicamente agrupam os `nodes` e te permitem buscar em todos esses nodes em busca dos dados que você quer.
 Geralmente um `cluster` serve a um propósito. Então é possível ter um cluster para ter a busca de produtos no seu e-commerce, e outro `cluster` guardando os seus logs, por exemplo.
 
-#### Outros termos do Elastic
+### Outros termos do Elastic
 - `Field` é como se fosse uma coluna da tabela do banco relacional. No Json do documento, "nome" é um field e "preco" é outro.
 - `Mapping` é como o schema de um banco de dados relacional. Por exemplo, é o mapping que guarda o tipo de cada Field
 - `Shard` é um pedaço do seu índice. O elastic por padrão quebra seu índice em vários pedaços e distribui entre os nodes do cluster, daí vem a computação distribuída que mencionei anteriormente.
@@ -91,7 +91,7 @@ curl -X PUT "localhost:9200/meu_indice/_mapping" -H 'Content-Type: application/j
 }
 ```
 ## Como o Elastic consegue buscar texto de forma tão rápida?
-Como dito anteriormente, o elastic é baseado no Apache Lucene, e o Lucene usa uma técnica chamada **[inverted index](https://j.blaszyk.me/tech-blog/exploring-apache-lucene-index/#inverted-index)** para buscar texto de forma eficiente. Um índice invertido é basicamente uma lista de palavras que apontam para os documentos que contém essa palavra. Por exemplo, se você tem um documento com o texto "O rato roeu a roupa do rei de Roma", e outro índice como "O gato comeu a roupa do rato", o índice invertido seria algo como:
+Como dito anteriormente, o elastic é baseado no Apache Lucene, e o Lucene usa uma técnica chamada **[inverted index](https://j.blaszyk.me/tech-blog/exploring-apache-lucene-index/#inverted-index)** para buscar texto de forma eficiente. Um índice invertido é basicamente uma lista de palavras que apontam para os documentos que contém essa palavra. Por exemplo, se você tem o documento de id 1 com o texto "O rato roeu a roupa do rei de Roma", e o outro de id 2 com "O gato comeu a roupa do rato", o índice invertido seria algo como:
 ```json
 {
     "rato": [1, 2],
@@ -110,7 +110,7 @@ Então, buscando a frase "O rato comeu queijo", ele vai perceber que o documento
 
 Por isso o nome é índice **invertido**, pois ele inverte a lógica de busca. Em vez de buscar palavras em documentos, ele busca documentos em palavras. Isso é simples, mas extremamente eficaz.
 
-Claro, existem outras otimizações, como usar um [Vector Space Model para calcular similiridade entre documentos e a busca](https://www.elastic.co/pt/blog/found-similarity-in-elasticsearch), mas a ideia básica é essa.
+Claro, existem outras otimizações, como usar um [Vector Space Model para calcular similiridade entre documentos e o texto buscado](https://www.elastic.co/pt/blog/found-similarity-in-elasticsearch), mas a ideia básica é essa.
 ## Conclusão
 Bom, esse foi um resumo básico do que é o Elasticsearch, porque ele foi criado e como ele consegue buscar texto de forma tão eficiente, além de ser um overview de como funciona a API RESTful.
 Nos próximos artigos aprenderemos a fazer queries e usaremos o docker para subir um cluster do elastic e uma instância do Kibana, uma ferramenta muito útil para visualizar e interagir com clusters do elastic. Até lá!
