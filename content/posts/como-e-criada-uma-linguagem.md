@@ -30,7 +30,7 @@ De forma muito resumida, um compilador é um programa que transforma o seu códi
 Ou seja, um compilador não é necessariamente um programa que lê código numa linguagem X e cospe código binário. Esse programa basicamente tem a responsabilidade de transformar seu código em algo alguma representação que possa ser executada de alguma forma, mas essa representação pode ter várias formas.
 
 ### O que é um interpretador?
-Por outro lado, um interpretador é um programa que lê o seu código fonte, e de alguma forma, executa as instruções que ele contém. Só isso, então quando você passa código javascript para o Nodejs, ele está agindo como um interpretador: lendo código fonte, e **interpretando** ele. E algumas **interpretadores** usam **compiladores** para os auxiliarem no processo de interpretador uma linguagem.
+Por outro lado, um interpretador é um programa que lê o seu código fonte, e de alguma forma, executa as instruções que ele contém. Só isso, então quando você passa código javascript para o Nodejs, ele está agindo como um interpretador: lendo código fonte, e **interpretando-o**. E algumas **interpretadores** usam **compiladores** para os auxiliarem no processo de interpretador uma linguagem.
 
 A linguagem PHP por exemplo, tem uma espécie de máquina virtual chamada Zend, que recebe uma representação compilada do seu código fonte, e executa as instruções dessa representação.
 
@@ -48,7 +48,7 @@ Eu diria que o caminho mais prático pra quem está começando é criar um inter
 
 O seu código passará por esses 3 componentes nessa ordem mesmo, onde a cada etapa, o interpretador transforma o seu código em estruturas cada vez mais fáceis de serem interpretadas pelo computador.
 
-Esse fluxograma simples mostra o caminho entra o código fonte da sua linguagem até a fase da interpretação.
+Esse fluxograma simples mostra o caminho do código fonte da sua linguagem até a fase da interpretação.
 
 ![diagonal](https://github.com/user-attachments/assets/5cddaa6e-9ec3-43d6-b707-4815140d4fa3)
 
@@ -57,7 +57,7 @@ Vou explicar (com códigos de exemplo) cada uma dessas etapas.
 ### Scanner
 Nessa fase o seu código fonte é lido como uma string (sequência de caracteres) e quebrado em vários tokens. Esse token é uma unidade da sua linguagem de programação, como por exemplo as palavras reservadas `while` e `if`, ou então os literais como `"isso é uma string"` ou `10`.
 
-Então isso:
+Então, isso:
 
 ![source code antes do scanner](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/l011jh1q45ajho2j1frf.png)
 
@@ -84,7 +84,7 @@ class Token {
 ```
 
 ### Parser
-Nessa fase já possuímos os tokens, mas esse monte de tokens ainda não possui significado algum, não possui **semântica**. Então o parser vai transformar esse amontoado de tokens em algo mais palpável, uma árvore representando as operações. Chamamos essa árvore de *"Parse Tree"*.
+Nessa fase já possuímos os tokens, mas esse monte de tokens ainda não possui significado algum, não possui **semântica**. Então o parser vai transformar esse amontoado de tokens em algo mais palpável: uma árvore, representando as operações. Chamamos essa árvore de *"Parse Tree"*.
 
 Uma parse tree é uma estrutura de capaz de representar fielmente a estrutura do seu programa, respeitando as regras de precedência (por exemplo, no código `const x = 5 * 5`, precisamos executar o código `5 * 5` *antes* de executar o código de atribuição `const x = ...` que irá receber o valor do resultado)
 
